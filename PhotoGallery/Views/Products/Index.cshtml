@@ -1,0 +1,128 @@
+﻿@*@model IEnumerable<PhotoGallery.Models.Product>*@
+@model PaginatedList<PhotoGallery.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header id="header-other">
+    <div class="container">
+    </div>
+</header>
+
+<div class="container section-title">
+    <h2>Our work</h2>
+    <p class="lead">Check out some of our photographs</p>
+</div>
+
+<div class="box">
+    <a asp-action="Create"><button type="submit" class="control-btn">CREATE NEW PRODUCT</button></a>
+</div>
+
+
+<div class="box">
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find by title or description: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" /> |
+                <a asp-action="Index">Back to Full List</a>
+            </p>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="box">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Title)*@
+                    Title
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Author)*@
+                    @*<a asp-action="Index" asp-route-sortOrder="@ViewData["AuthorSortParm"]">@Html.DisplayNameFor(model => model.Author)</a>*@
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AuthorSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Author<i class="fas fa-caret-right"></i></a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Genre)*@
+                    @*<a asp-action="Index" asp-route-sortOrder="@ViewData["GenreSortParm"]">@Html.DisplayNameFor(model => model.Genre)</a>*@
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["GenreSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Genre<i class="fas fa-caret-right"></i></a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Dimensions)*@
+                    @*Dimensions*@
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["DimensionsSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Dimensions<i class="fas fa-caret-right"></i></a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Price)*@
+                    @*<a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]">@Html.DisplayNameFor(model => model.Price)</a>*@
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Price <i class="fas fa-caret-right"></i></a>
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Photo)*@
+                    Photo
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dimensions)
+                    </td>
+                    <td>
+                        € @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <img src="~/images/shop/@Html.DisplayFor(modelItem => item.Photo)" height="50px" width="50px" />
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div class="box">
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
+</div>

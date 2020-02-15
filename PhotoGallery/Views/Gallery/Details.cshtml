@@ -1,0 +1,47 @@
+﻿@model PhotoGallery.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<main>
+    <header id="header-other">
+        <div class="container">
+        </div>
+    </header>
+
+    <div class="container section-title">
+        <h2>Prints</h2>
+        <p class="lead">PHOTO DETAILS</p>
+    </div>
+
+
+    <div class="container indiv-photo">
+        <div class="title1">
+            <h2>@Html.DisplayFor(model => model.Title)</h2>
+        </div>
+        <div class="author1">
+            <h4>@Html.DisplayFor(model => model.Author)</h4>
+        </div>
+        <div class="description1">
+            <p>@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        <div class="genre1">
+            <p>@Html.DisplayFor(model => model.Genre)</p>
+        </div>
+        <div class="size-l">
+            <p>DIMENSIONS:</p>
+        </div>
+        <div class="size-d">
+            <p>@Html.DisplayFor(model => model.Dimensions)</p>
+        </div>
+        <div class="price1">
+            <p>€@Html.DisplayFor(model => model.Price)</p>
+        </div>
+        <div class="photo">
+            <img src="~/images/shop/@Html.DisplayFor(model => model.Photo)" alt="">
+        </div>
+    </div>
+</main>

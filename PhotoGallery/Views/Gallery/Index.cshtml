@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PhotoGallery.Models.Product>
+
+@{
+    ViewData["Title"] = "Prints";
+    int counter = 0;
+}
+
+<header id="header-other">
+    <div class="container">
+    </div>
+</header>
+
+<div class="container section-title">
+    <h2>Our work</h2>
+    <p class="lead">Check out some of our photographs</p>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3  box">
+    @foreach (var item in Model)
+    {
+        if (counter != 0 && counter % 3 == 0)
+        {
+        @:</div>
+        @:<div class="row row-cols-1 row-cols-md-3  box">
+        }
+
+        <div class="col mb-4">
+            <div class="card h-100">
+                <img src="./images/shop/@Html.DisplayFor(modelItem => item.Photo)" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+
+        counter++;
+    }
+</div>
