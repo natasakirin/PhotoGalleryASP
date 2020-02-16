@@ -11,63 +11,43 @@
 
 <div class="container section-title">
     <h2>Our work</h2>
-    <p class="lead">Edit</p>
 </div>
 
 
+<div class="container indiv-photo">
+    <div class="title1">
+        <h2>@Html.DisplayFor(model => model.Title)</h2>
+    </div>
+    <div class="author1">
+        <h4>@Html.DisplayFor(model => model.Author)</h4>
+    </div>
+    <div class="description1">
+        <p>@Html.DisplayFor(model => model.Description)</p>
+    </div>
+    <div class="genre1">
+        <p>@Html.DisplayFor(model => model.Genre)</p>
+    </div>
+    <div class="size-l">
+        <p>DIMENSIONS:</p>
+    </div>
+    <div class="size-d">
+        <p>@Html.DisplayFor(model => model.Dimensions)</p>
+    </div>
+    <div class="price1">
+        <p>€@Html.DisplayFor(model => model.Price)</p>
+    </div>
+    <div class="photo">
+        <img src="~/images/shop/@Html.DisplayFor(model => model.Photo)" alt="">
+    </div>
+</div>
+
 
 <div class="box">
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Dimensions)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Dimensions)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class="col-sm-0">
-            @*@Html.DisplayNameFor(model => model.Photo)*@
-        </dt>
-        <dd class="col-sm-3">
-            <img src="~/images/shop/@Html.DisplayFor(model => model.Photo)" />
-        </dd>
-    </dl>
-
 
     <div>
         <a asp-action="Edit" asp-route-id="@Model.Id"><button class="control-btn">EDIT</button></a>
 
     </div>
-    <a asp-action="Index">Back to List</a>
-
+    <a asp-action="Gallery">Back to Gallery</a>  |   <a asp-action="Index">Go to Products List</a>
 
 </div>

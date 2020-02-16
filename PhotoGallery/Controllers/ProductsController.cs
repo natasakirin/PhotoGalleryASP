@@ -11,7 +11,7 @@ using PhotoGallery.Models;
 
 namespace PhotoGallery.Controllers
 {
-    [Authorize]
+
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +27,9 @@ namespace PhotoGallery.Controllers
         //    return View(await _context.Products.ToListAsync());
         //}
 
+
         // Start: -----------------------------------SORTING TITLE & PRICE ------------------------------------------
+        [Authorize]
         public async Task<IActionResult> Index(
                                         string sortOrder,
                                         string currentFilter,
@@ -100,6 +102,7 @@ namespace PhotoGallery.Controllers
 
 
         // GET: Products/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -117,7 +120,11 @@ namespace PhotoGallery.Controllers
             return View(product);
         }
 
+
+
+
         // GET: Products/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -126,6 +133,7 @@ namespace PhotoGallery.Controllers
         // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,Dimensions,Price,Photo,Description")] Product product)
@@ -141,6 +149,7 @@ namespace PhotoGallery.Controllers
 
 
         // GET: Products/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -159,6 +168,7 @@ namespace PhotoGallery.Controllers
         // POST: Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,Dimensions,Price,Photo,Description")] Product product)
@@ -192,6 +202,7 @@ namespace PhotoGallery.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -210,6 +221,7 @@ namespace PhotoGallery.Controllers
         }
 
         // POST: Products/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -224,5 +236,15 @@ namespace PhotoGallery.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+
+
+
+        //Gallery - for unregistred users
+
+        public async Task<IActionResult> Gallery()
+        {
+            return View(await _context.Products.ToListAsync());
+        }
+
     }
 }
