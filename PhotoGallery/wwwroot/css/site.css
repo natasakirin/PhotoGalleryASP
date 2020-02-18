@@ -455,6 +455,30 @@ label {
 
 
 
+.form-register {
+    margin: 0;
+    padding: 0;
+    width: 75%;
+    margin: 2rem auto 4rem auto;
+    -webkit-box-shadow: 5px 10px 18px #888888;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+    .form-register .column-image {
+        background-image: url("../images/forms/registerform.png");
+        background-size: cover;
+    }
+
+    .form-register .form-inner {
+        width: 75%;
+        margin: 3rem auto 1rem auto;
+    }
+
+
+.column-image-reg {
+    background-image: url("../images/forms/loginform.png");
+    background-size: cover;
+}
 
 
 /*# sourceMappingURL=custom.css.map */

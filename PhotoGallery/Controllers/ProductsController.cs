@@ -28,7 +28,7 @@ namespace PhotoGallery.Controllers
         //}
 
 
-        // Start: -----------------------------------SORTING TITLE & PRICE ------------------------------------------
+        // Start: ---------------------SEARCHING TITLE & DESCRIPTION + SORTING AUTHOR, PRICE, DIMENSIONS and GENRE -------------
         [Authorize]
         public async Task<IActionResult> Index(
                                         string sortOrder,
@@ -41,7 +41,6 @@ namespace PhotoGallery.Controllers
             ViewData["AuthorSortParm"] = sortOrder == "Author" ? "author_desc" : "Author";
             ViewData["PriceSortParm"] = sortOrder == "Price" ? "price_desc" : "Price";
             ViewData["GenreSortParm"] = sortOrder == "Genre" ? "genre_desc" : "Genre";
-
             ViewData["DimensionsSortParm"] = sortOrder == "Dimensions" ? "dimensions_desc" : "Dimensions";
 
             if (searchString != null)
@@ -96,7 +95,7 @@ namespace PhotoGallery.Controllers
             int pageSize = 9;
             return View(await PaginatedList<Product>.CreateAsync(photos.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
-        // End: -----------------------------------SORTING TITLE & PRICE ------------------------------------------
+        // End: ---------------------SEARCHING TITLE & DESCRIPTION + SORTING AUTHOR, PRICE, DIMENSIONS and GENRE -------------
 
 
 
