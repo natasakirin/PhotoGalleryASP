@@ -27,8 +27,11 @@ namespace PhotoGallery.Controllers
         public IActionResult About()
         {
             return View("About");
+        }
 
-            //return RedirectToAction("Identity/Account/Prints");
+        public IActionResult Contact()
+        {
+            return View("Contact");
         }
 
 

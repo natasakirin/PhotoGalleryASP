@@ -30,7 +30,7 @@ namespace PhotoGallery.Controllers
             mm.Body = body;
             mm.From = new MailAddress("lu.asp@yandex.com");
             mm.IsBodyHtml = false;
-            SmtpClient smtp = new SmtpClient(" smtp.yandex.com");
+            SmtpClient smtp = new SmtpClient("smtp.yandex.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = true;
             smtp.EnableSsl = true;

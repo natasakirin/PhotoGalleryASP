@@ -190,6 +190,23 @@ footer {
     text-align: center;
 }
 
+.footer {
+    background-color: #375770;
+    height: 3rem;
+    border-top: 3px solid #CEDEF7;
+    color: #CBD3E6;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.logo-sm {
+    height: 30px;
+    width: 50px;
+}
+
 .section-title {
     padding-bottom: 2rem 0;
     color: #333;
@@ -228,7 +245,6 @@ footer {
 .testimonials-inner {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[4];
     grid-template-columns: repeat(4, 1fr);
 }
 
@@ -331,10 +347,8 @@ label {
     width: 70%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 450px 1fr 2fr 1.2fr 1fr 2fr;
     grid-template-columns: 450px 1fr 2fr 1.2fr 1fr 2fr;
-    -ms-grid-rows: 25% 3rem 6rem 2rem 2rem  4rem;
-    grid-template-rows: 25% 3rem 6rem 2rem 2rem  4rem;
+    grid-template-rows: 25% 3rem 6rem 2rem 2rem 4rem;
     grid-template-areas: "ph . t t t t" "ph . . . a a " "ph . d d d d" "ph . g g g g" "ph . sl sd sd sd" "ph . . . . pr";
 }
 
@@ -414,16 +428,22 @@ label {
 
 
 .product-nav {
-    color: #333;
-    padding-right: 10rem;
+    /*color: #333;*/
+    padding-right: 3rem;
 }
 
-..product-nav i {
+    .product-nav i {
+        font-size: 1.3rem;
+    }
+
+.admin-nav {
     color: #333;
+    padding-right: 5rem;
+}
+
+.product-nav i {
     font-size: 1.3rem;
 }
-
-
 
 .btn-right {
     text-align: right;
@@ -481,4 +501,45 @@ label {
 }
 
 
+
+/* CONTACT US page*/
+
+.contact-us-page {
+    color: #333;
+    -webkit-box-shadow: 2px 2px 15px 0px #333;
+    box-shadow: 2px 2px 15px 0px #333;
+    margin-bottom: 5rem;
+}
+
+.contact-bg-photo {
+    background-image: url("../images/forms/contactbg.jpg");
+    background-size: cover;
+}
+
+    .contact-bg-photo p {
+        color: #f4f4f4;
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 3rem;
+        text-shadow: 2px 2px rgba(65, 65, 77, 0.5);
+    }
+
+.contact-info-inner {
+    font-size: 1.1rem;
+}
+
+.map-container {
+    height: 385px;
+}
+
+    .map-container iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+
 /*# sourceMappingURL=custom.css.map */
+
